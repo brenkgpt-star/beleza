@@ -1,0 +1,2222 @@
+/* =========================================================
+   AURA Estética & Bem-Estar — Design System & Mobile First
+   ========================================================= */
+
+:root {
+  /* Cores Principais (Paleta Luxo Orgânica) */
+  --bg: #FAF7F2;
+  --bg-soft: #F3ECE2;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F9F5EE;
+  
+  --ink: #1C201A;
+  --ink-muted: #565C52;
+  --ink-light: #80887A;
+  
+  --accent: #465935;
+  --accent-hover: #354427;
+  --accent-soft: #8B9B78;
+  --accent-subtle: #EBF0E6;
+  
+  --clay: #C0795E;
+  --clay-soft: #F4E8E3;
+  --gold: #C29F6F;
+  --gold-soft: #F8F3EA;
+  
+  --whatsapp-green: #25D366;
+  --whatsapp-hover: #20BA5A;
+  --whatsapp-bg: #E7F9EE;
+  
+  --line: rgba(28, 32, 26, 0.09);
+  --line-strong: rgba(28, 32, 26, 0.16);
+  
+  /* Sombras de Alto Padrão */
+  --shadow-subtle: 0 4px 18px rgba(28, 32, 26, 0.04);
+  --shadow-md: 0 8px 30px rgba(28, 32, 26, 0.07);
+  --shadow-lg: 0 16px 48px rgba(28, 32, 26, 0.10);
+  --shadow-floating: 0 12px 36px rgba(37, 211, 102, 0.35);
+
+  /* Raio de borda */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+
+  /* Fontes */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Transições suaves */
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset Global e Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.bty {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+
+/* Títulos Globais */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+/* Cabeçalhos de Seção Padrão */
+.bty-section-header {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.bty-section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.bty-section-title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.bty-section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* =========================================================
+   HEADER & NAVEGAÇÃO
+   ========================================================= */
+.bty-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bty-header--scrolled {
+  background: rgba(250, 247, 242, 0.94);
+  border-color: var(--line);
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logotipo */
+.bty-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.bty-logo-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.bty-logo-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  margin-top: 3px;
+}
+
+/* Nav Desktop */
+.bty-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bty-nav-desktop a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.bty-nav-desktop a:hover {
+  color: var(--accent);
+}
+
+.bty-nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.bty-nav-desktop a:hover::after {
+  width: 100%;
+}
+
+/* Ações do Header (WhatsApp Button & Dropdown) */
+.bty-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bty-header-phone-group {
+  position: relative;
+}
+
+.bty-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--ink);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.bty-header-cta:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.bty-icon-wa {
+  width: 17px;
+  height: 17px;
+  color: var(--whatsapp-green);
+}
+
+.bty-icon-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.bty-icon-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* Dropdown de Telefones Desktop */
+.bty-header-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 280px;
+  background: #FFFFFF;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  animation: fadeInDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 110;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bty-dropdown-header {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink-light);
+  padding: 0.4rem 0.6rem 0.2rem;
+}
+
+.bty-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  transition: var(--transition);
+}
+
+.bty-dropdown-item:hover {
+  background: var(--accent-subtle);
+  transform: translateX(3px);
+}
+
+.bty-dropdown-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--whatsapp-green);
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+.bty-dropdown-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.bty-dropdown-phone {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Botão Hambúrguer Mobile */
+.bty-burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+}
+
+.bty-burger-line {
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.bty-burger-line.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.bty-burger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bty-burger-line.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu Mobile Drawer */
+.bty-mobile-menu {
+  display: none;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.bty-mobile-menu--open {
+  max-height: 520px;
+  opacity: 1;
+}
+
+.bty-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bty-mobile-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.bty-mobile-nav a svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.bty-mobile-contacts-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+}
+
+.bty-mobile-contact-card {
+  display: block;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(70, 89, 53, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+  transition: var(--transition);
+}
+
+.bty-mobile-contact-card:hover {
+  background: #DEE9D7;
+}
+
+.bty-mobile-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.bty-mobile-number {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.bty-mobile-cta-action {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-hover);
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+.bty-hero {
+  position: relative;
+  min-height: 88vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  overflow: hidden;
+}
+
+.bty-hero-bg-glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(192, 121, 94, 0.12) 0%, rgba(139, 155, 120, 0.1) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bty-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.bty-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #FFFFFF;
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-subtle);
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.6rem;
+}
+
+.bty-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clay);
+  display: inline-block;
+}
+
+.bty-hero-title {
+  font-size: clamp(2.5rem, 5.2vw, 4.2rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+}
+
+.bty-hero-desc {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--ink-muted);
+  line-height: 1.7;
+  max-width: 33rem;
+  margin-bottom: 2.2rem;
+}
+
+.bty-hero-ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.bty-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.2rem;
+  background: var(--accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(70, 89, 53, 0.28);
+}
+
+.bty-cta-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(70, 89, 53, 0.38);
+}
+
+.bty-cta-primary svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.bty-cta-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.bty-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.95rem 1.8rem;
+  background: #FFFFFF;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  font-size: 0.98rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-cta-secondary:hover {
+  background: var(--bg-soft);
+  border-color: var(--accent-soft);
+}
+
+/* Quick Phones no Hero */
+.bty-hero-quick-phones {
+  margin-bottom: 2.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+}
+
+.bty-quick-label {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink-light);
+  margin-bottom: 0.6rem;
+}
+
+.bty-quick-phone-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.bty-quick-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-quick-pill:hover {
+  border-color: var(--whatsapp-green);
+  background: var(--whatsapp-bg);
+  transform: translateY(-1px);
+}
+
+.bty-quick-pill svg {
+  width: 16px;
+  height: 16px;
+  color: var(--whatsapp-green);
+}
+
+.bty-quick-pill small {
+  font-size: 0.72rem;
+  background: var(--bg-soft);
+  color: var(--ink-muted);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+
+/* Stats */
+.bty-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.bty-stat-item strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.bty-stat-item span {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+/* Arte Hero */
+.bty-hero-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.bty-art-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F5EFE6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.bty-art-badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+}
+
+.bty-art-sparkle {
+  color: var(--gold);
+}
+
+.bty-art-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
+}
+
+.bty-art-float-card {
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  right: 10%;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.bty-float-icon {
+  font-size: 1.4rem;
+}
+
+.bty-art-float-card strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.bty-art-float-card span {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+/* =========================================================
+   SERVICES / PROCEDIMENTOS
+   ========================================================= */
+.bty-services-section {
+  padding: 6rem 1.5rem;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.bty-filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.bty-filter-tab {
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+
+.bty-filter-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bty-filter-tab.active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(70, 89, 53, 0.25);
+}
+
+.bty-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1240px;
+  margin: 0 auto 3.5rem;
+}
+
+.bty-service-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.bty-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(70, 89, 53, 0.28);
+}
+
+.bty-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.bty-card-icon {
+  font-size: 1.8rem;
+}
+
+.bty-card-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--bg-soft);
+  color: var(--accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.bty-card-title {
+  font-size: 1.45rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+}
+
+.bty-card-desc {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+.bty-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.bty-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+}
+
+.bty-card-meta svg {
+  width: 15px;
+  height: 15px;
+}
+
+.bty-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  background: var(--bg-soft);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.bty-card-action svg {
+  width: 14px;
+  height: 14px;
+}
+
+.bty-card-action:hover {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+/* Banner CTA inferior de Serviços */
+.bty-services-cta-banner {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-services-cta-banner h3 {
+  font-size: 1.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.bty-services-cta-banner p {
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+}
+
+.bty-banner-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.bty-banner-btn-primary {
+  padding: 0.8rem 1.4rem;
+  background: var(--accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bty-banner-btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.bty-banner-btn-secondary {
+  padding: 0.8rem 1.4rem;
+  background: var(--bg-soft);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bty-banner-btn-secondary:hover {
+  background: #E4D9C8;
+}
+
+/* =========================================================
+   ABOUT & FILOSOFIA
+   ========================================================= */
+.bty-about-section {
+  padding: 6rem 1.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.bty-about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.bty-about-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-bottom: 1.5rem;
+}
+
+.bty-about-p {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.bty-about-direct-contact {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-soft);
+  border-radius: var(--radius-md);
+}
+
+.bty-about-contact-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+}
+
+.bty-about-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bty-about-contact-links a {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.bty-about-contact-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.bty-about-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.bty-pillar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.bty-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.bty-pillar-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.bty-pillar-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.bty-pillar-card p {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.bty-testimonials-section {
+  padding: 6rem 1.5rem;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+}
+
+.bty-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 2rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.bty-testimonial-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.bty-testimonial-stars {
+  color: #E2A03F;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.bty-testimonial-quote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 1.6rem;
+  flex-grow: 1;
+}
+
+.bty-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.bty-author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.bty-testimonial-author strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.bty-testimonial-author span {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+}
+
+/* =========================================================
+   CONTACT & AGENDAMENTO
+   ========================================================= */
+.bty-contact-section {
+  padding: 6rem 1.5rem 7rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.bty-contact-header {
+  margin-bottom: 3.5rem;
+}
+
+/* Showcase dos Dois Telefones */
+.bty-phones-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.bty-phone-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bty-phone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.bty-phone-card--featured {
+  border-color: var(--accent-soft);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 100%);
+}
+
+.bty-phone-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.25rem;
+}
+
+.bty-phone-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.bty-phone-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--bg-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bty-phone-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bty-phone-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.bty-phone-display {
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.bty-phone-display:hover {
+  color: var(--accent);
+}
+
+.bty-phone-desc {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+  line-height: 1.55;
+}
+
+.bty-phone-actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.bty-btn-whatsapp {
+  flex: 1;
+  min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.4rem;
+  background: var(--whatsapp-green);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.bty-btn-whatsapp:hover {
+  background: var(--whatsapp-hover);
+  transform: translateY(-1px);
+}
+
+.bty-btn-whatsapp svg {
+  width: 19px;
+  height: 19px;
+}
+
+.bty-btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.3rem;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.bty-btn-call:hover {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+.bty-btn-call svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Informações e Formulário Inferior */
+.bty-contact-bottom-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
+}
+
+.bty-info-card, .bty-scheduler-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-info-card-title, .bty-scheduler-title {
+  font-size: 1.55rem;
+  margin-bottom: 1.25rem;
+}
+
+.bty-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.bty-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.bty-info-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bty-info-item-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bty-info-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.bty-info-item span, .bty-info-item a {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+
+.bty-info-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.bty-info-note {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+
+/* Scheduler / Agendador Expresso */
+.bty-scheduler-desc {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+
+.bty-scheduler-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.bty-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.bty-form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.bty-form-input, .bty-form-select {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  outline: none;
+  transition: var(--transition);
+}
+
+.bty-form-input:focus, .bty-form-select:focus {
+  border-color: var(--accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(70, 89, 53, 0.12);
+}
+
+.bty-phone-selector-radios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.bty-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bty-radio-label:hover {
+  border-color: var(--accent-soft);
+}
+
+.bty-radio-label.selected {
+  border-color: var(--accent);
+  background: var(--accent-subtle);
+}
+
+.bty-radio-label input {
+  accent-color: var(--accent);
+}
+
+.bty-radio-label strong {
+  display: block;
+  font-size: 0.82rem;
+}
+
+.bty-radio-label small {
+  font-size: 0.72rem;
+  color: var(--ink-light);
+}
+
+.bty-scheduler-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: var(--whatsapp-green);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.98rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+  margin-top: 0.5rem;
+}
+
+.bty-scheduler-btn:hover {
+  background: var(--whatsapp-hover);
+  transform: translateY(-1px);
+}
+
+.bty-scheduler-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =========================================================
+   MAP & LOCALIZAÇÃO SECTION
+   ========================================================= */
+.bty-map-section {
+  padding: 5rem 1.5rem 6rem;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.bty-map-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.bty-map-wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bty-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 1.75rem;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line);
+}
+
+.bty-map-info-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.bty-map-pin-pulse {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--clay);
+  box-shadow: 0 0 0 4px rgba(192, 121, 94, 0.25);
+  flex-shrink: 0;
+  animation: mapPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes mapPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.bty-map-info-pill strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.bty-map-coords-text {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.bty-map-provider-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 3px;
+}
+
+.bty-provider-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  color: var(--ink-muted);
+  background: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.bty-provider-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.bty-provider-btn:hover {
+  color: var(--ink);
+}
+
+.bty-provider-btn.active {
+  background: #FFFFFF;
+  color: var(--ink);
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-map-frame-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: var(--bg-soft);
+}
+
+.bty-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.bty-map-actions-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding: 1.25rem 1.75rem;
+  background: #FFFFFF;
+  border-top: 1px solid var(--line);
+}
+
+.bty-map-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.bty-map-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bty-map-action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-map-btn--google:hover {
+  background: #4285F4;
+  border-color: #4285F4;
+  color: #FFFFFF;
+}
+
+.bty-map-btn--waze:hover {
+  background: #33CCFF;
+  border-color: #33CCFF;
+  color: #002B49;
+}
+
+.bty-map-btn--earth:hover {
+  background: #1A73E8;
+  border-color: #1A73E8;
+  color: #FFFFFF;
+}
+
+.bty-map-btn--copy {
+  margin-left: auto;
+}
+
+.bty-map-btn--copy.copied {
+  background: var(--whatsapp-green);
+  border-color: var(--whatsapp-green);
+  color: #FFFFFF;
+}
+
+.bty-mono-coords {
+  display: block;
+  font-family: monospace;
+  font-size: 0.86rem;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+
+.bty-view-map-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 0.35rem;
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.bty-view-map-link:hover {
+  color: var(--ink);
+}
+
+/* =========================================================
+   FLOATING WHATSAPP BUTTON & POPOVER (MOBILE FAVORITE!)
+   ========================================================= */
+.bty-floating-wa-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+
+.bty-floating-wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--whatsapp-green);
+  color: #FFFFFF;
+  padding: 0.9rem 1.4rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-floating);
+  position: relative;
+}
+
+.bty-floating-wa-btn:hover {
+  background: var(--whatsapp-hover);
+  transform: scale(1.04);
+}
+
+.bty-floating-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--whatsapp-green);
+  animation: waPulse 2s infinite cubic-bezier(0.25, 0, 0, 1);
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% { transform: scale(0.96); opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+.bty-floating-wa-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bty-floating-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Popover do WhatsApp */
+.bty-floating-popover {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  width: 320px;
+  background: #FFFFFF;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.bty-popover-header {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #FFFFFF;
+  padding: 1.25rem 1.4rem;
+}
+
+.bty-popover-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.bty-popover-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(37, 211, 102, 0.25);
+  color: #A9FFC8;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.bty-popover-close {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.bty-popover-close:hover {
+  opacity: 1;
+}
+
+.bty-popover-header h4 {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.bty-popover-header p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.bty-popover-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bty-popover-option {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.bty-popover-option:hover {
+  background: var(--whatsapp-bg);
+  border-color: var(--whatsapp-green);
+  transform: translateY(-2px);
+}
+
+.bty-popover-opt-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--whatsapp-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bty-popover-opt-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bty-popover-opt-info strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.bty-popover-phone {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.bty-popover-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-light);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.bty-footer {
+  background: #181C16;
+  color: #C3C7BE;
+  padding: 5rem 1.5rem 2.5rem;
+  margin-top: auto;
+}
+
+.bty-footer-top {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1.2fr 0.9fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bty-footer-logo-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  display: block;
+}
+
+.bty-footer-logo-sub {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-soft);
+  display: block;
+  margin-top: 2px;
+}
+
+.bty-footer-tagline {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #989F93;
+  margin-top: 1.1rem;
+  max-width: 20rem;
+}
+
+.bty-footer-heading {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.bty-footer-links, .bty-footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bty-footer-links a, .bty-footer-contact-list a {
+  color: #B4B9AE;
+  font-size: 0.88rem;
+}
+
+.bty-footer-links a:hover, .bty-footer-contact-list a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.bty-footer-sublabel {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7D8577;
+  margin-bottom: 0.15rem;
+}
+
+.bty-footer-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  color: #989F93;
+}
+
+.bty-footer-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.bty-social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: var(--transition);
+}
+
+.bty-social-link:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.bty-social-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+.bty-footer-bottom {
+  max-width: 1240px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.82rem;
+  color: #7A8175;
+}
+
+.bty-footer-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #B4B9AE;
+  font-size: 0.82rem;
+}
+
+.bty-footer-top-btn:hover {
+  color: #FFFFFF;
+}
+
+.bty-footer-top-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* =========================================================
+   RESPONSIVIDADE & MOBILE-FIRST OPTIMIZATION
+   ========================================================= */
+
+/* Tablets e Telas Médias */
+@media (max-width: 1024px) {
+  .bty-hero {
+    grid-template-columns: 1fr;
+    padding-top: 3rem;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .bty-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bty-hero-desc {
+    max-width: 38rem;
+  }
+
+  .bty-hero-ctas {
+    justify-content: center;
+  }
+
+  .bty-quick-phone-pills {
+    justify-content: center;
+  }
+
+  .bty-hero-stats {
+    width: 100%;
+    max-width: 34rem;
+  }
+
+  .bty-about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .bty-about-text {
+    text-align: center;
+  }
+
+  .bty-about-direct-contact {
+    text-align: left;
+  }
+
+  .bty-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Dispositivos Móveis (Smartphones <= 860px) */
+@media (max-width: 860px) {
+  .bty-nav-desktop {
+    display: none;
+  }
+
+  .bty-burger-btn {
+    display: flex;
+  }
+
+  .bty-mobile-menu {
+    display: block;
+  }
+
+  .bty-header-phone-group {
+    display: none; /* No mobile o contato fica no menu e no botão flutuante */
+  }
+
+  .bty-phones-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .bty-contact-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bty-phone-card {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .bty-phone-actions {
+    flex-direction: column;
+  }
+
+  .bty-btn-whatsapp, .bty-btn-call {
+    width: 100%;
+    min-height: 48px; /* Touch target excelente */
+  }
+
+  .bty-services-cta-banner {
+    padding: 1.8rem 1.4rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .bty-banner-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .bty-banner-btn-primary, .bty-banner-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bty-phone-selector-radios {
+    grid-template-columns: 1fr;
+  }
+
+  .bty-map-frame-container {
+    height: 380px;
+  }
+
+  .bty-map-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bty-map-btn--copy {
+    margin-left: 0;
+  }
+}
+
+/* Telas Pequenas (Smartphones <= 520px) */
+@media (max-width: 520px) {
+  .bty-header-inner {
+    padding: 0.9rem 1.2rem;
+  }
+
+  .bty-logo-title {
+    font-size: 1.55rem;
+  }
+
+  .bty-hero {
+    padding: 2rem 1.2rem 3.5rem;
+  }
+
+  .bty-badge-pill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .bty-hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bty-cta-primary, .bty-cta-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .bty-hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .bty-about-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .bty-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bty-service-card {
+    padding: 1.6rem 1.3rem;
+  }
+
+  .bty-info-card, .bty-scheduler-card {
+    padding: 1.8rem 1.3rem;
+  }
+
+  .bty-map-section {
+    padding: 3.5rem 1.2rem;
+  }
+
+  .bty-map-frame-container {
+    height: 300px;
+  }
+
+  .bty-map-actions-bar {
+    flex-direction: column;
+  }
+
+  .bty-map-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bty-footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bty-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Otimização do botão flutuante no mobile */
+  .bty-floating-wa-container {
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .bty-floating-wa-btn {
+    padding: 0.75rem 1.1rem;
+  }
+
+  .bty-floating-popover {
+    width: calc(100vw - 36px);
+    right: 0;
+  }
+}
+
+/* Acessibilidade: Redução de Movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
