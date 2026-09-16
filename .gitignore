@@ -2,6 +2,8 @@
 node_modules/
 dist/
 dist-ssr/
+Beleza/
+beleza/
 *.local
 
 # Logs
